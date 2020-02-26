@@ -1,4 +1,4 @@
-package ExceptionUebung;
+package Uebung2;
 
 public class FalscherParameter extends Exception {
 

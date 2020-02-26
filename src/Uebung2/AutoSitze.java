@@ -1,4 +1,4 @@
-package ExceptionUebung;
+package Uebung2;
 
 public class AutoSitze {
     private boolean ledersitze;
