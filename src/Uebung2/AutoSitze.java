@@ -7,6 +7,9 @@ public class AutoSitze {
     public AutoSitze(boolean bezug, String farbe) throws FalscherParameter{
         if (bezug && !(farbe.equalsIgnoreCase("schwarz") || farbe.equalsIgnoreCase("weiß"))) {
             throw new FalscherParameter(farbe);
+        } else {
+            this.farbe = farbe;
+            this.ledersitze = bezug;
         }
     }
 
