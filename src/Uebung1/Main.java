@@ -19,6 +19,7 @@ public class Main {
         //this is my test
 
 
+
         try {
             datei = new FileWriter("ausgabe.txt");
             for (int i = 2; i <= 100; i++) {
