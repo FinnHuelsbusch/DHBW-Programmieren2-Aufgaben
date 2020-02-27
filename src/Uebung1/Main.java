@@ -3,7 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * Das Problem ist hier, das eventuell keine Datei erstellt werden kann aufgrunddessen muss das ganze in einen try catch
+ * Das Problem ist hier, das eventuell keine Datei erstellt werden kann aufgrunddessen muss das ganze in einen try
+ * catch es kann bei bedarf ein finalize eingefuegt werden in dem der writer geschlossen wird. Der muss aber wieder in
+ * ein try catch.
  */
 
 
