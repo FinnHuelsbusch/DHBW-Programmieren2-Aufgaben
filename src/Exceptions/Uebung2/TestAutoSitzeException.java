@@ -1,4 +1,4 @@
-package Uebung2;
+package Exceptions.Uebung2;
 
 public class TestAutoSitzeException {
 
