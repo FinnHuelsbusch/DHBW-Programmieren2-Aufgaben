@@ -1,6 +1,4 @@
-package Uebungen;
-
-import Uebung2.FalscherParameter;
+package UebungenNachschreibeklausur;
 
 public class Auto {
 

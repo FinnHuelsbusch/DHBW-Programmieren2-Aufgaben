@@ -1,4 +1,4 @@
-package Uebungen;
+package UebungenNachschreibeklausur;
 
 public class BellsDreieck {
     private int Stufen;
