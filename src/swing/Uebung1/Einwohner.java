@@ -71,4 +71,8 @@ public class Einwohner implements Comparable{
     public void setFamilienstand(String familienstand) {
         this.familienstand = familienstand;
     }
+
+    public String toString() {
+        return anrede+" "+name +" "+ vorname+" " + gebName +" "+eMail+" "+familienstand;
+    }
 }
