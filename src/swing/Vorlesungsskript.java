@@ -32,7 +32,9 @@ public class Vorlesungsskript extends JFrame {
         blauerRahmen.add(passwortPanel);
         blauerRahmen.add(new JLabel("Art:"));
         String[] s = {"FTP","Telnet","HTTP","SMTP"};
-        blauerRahmen.add(new JComboBox<String>(s));
+        JPanel PanelCombobox = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        PanelCombobox.add(new JComboBox<String>(s));
+        blauerRahmen.add(PanelCombobox);
         blauerRahmen.add(new JLabel("Host:"));
         JPanel PanelHost = new JPanel(new FlowLayout(FlowLayout.LEFT));
         PanelHost.add(new JTextField(4));

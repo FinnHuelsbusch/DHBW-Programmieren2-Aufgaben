@@ -1,4 +1,4 @@
-package lecture.excurs.UnitTest;
+package UnitTest;
 
 public class Calculator {
     public int add(int operandOne, int operandTwo) {

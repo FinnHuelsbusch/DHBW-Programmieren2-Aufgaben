@@ -1,4 +1,4 @@
-package lecture.excurs.UnitTest;
+package UnitTest;
 
 import org.junit.jupiter.api.*;
 
