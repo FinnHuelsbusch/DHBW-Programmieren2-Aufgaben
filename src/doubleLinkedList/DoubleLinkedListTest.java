@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DoubleLinkedListTest {
+
     DoubleLinkedList<String> list;
     @BeforeEach
     void setUp() {
@@ -15,30 +16,30 @@ class DoubleLinkedListTest {
     @Test
     void addAndContains() {
         list.add("Hui");
-        assertEquals(true, list.contains("Hui"));
-        assertEquals("Hui", list.toString());
-
+        assertEquals(true, list.contains("Hui"));   // ist ausreichend
+        assertEquals("Hui", list.toString());       // nicht falsch sondern extra
     }
 
     @Test
     void addFirst() {
-        list.addFirst("Hui2");
         list.add("Hui");
+        list.addFirst("Hui2");
         assertEquals("Hui2, Hui", list.toString());
     }
 
     @Test
-    void addAndContain() {
+    void addRemoveObejectNotInList() {
         list.add("Hui");
         assertEquals(false,list.remove("Hallo"));
     }
     @Test
-    void addAndremove() {
+    void addRemoveAdd() {
         list.add("Hui");
         list.remove("Hui");
         list.add("Hallo");
         assertEquals("Hallo",list.toString());
     }
+
 
     @Test
     void removeNotExistingElement() {
@@ -46,7 +47,7 @@ class DoubleLinkedListTest {
     }
 
     @Test
-    void containsempty() {
+    void containsEmpty() {
         assertEquals(false,list.contains("test"));
     }
 
