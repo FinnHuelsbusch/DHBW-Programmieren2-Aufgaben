@@ -6,53 +6,55 @@ import org.junit.jupiter.api.Test;
 
 class TreeTest {
 
-    Tree<String> testTree = null;
+    Tree<Integer> testTree = null;
     String test;
 
     @BeforeEach
     void setup(){
-        testTree = new Tree<String>();
+        testTree = new Tree<Integer>();
     }
 
     @Test
     void addAndContains() {
-        testTree.add("eins");
-        testTree.add("zwei");
-        testTree.add("drei");
-
-        Assertions.assertTrue(testTree.contains("zwei"));
+        testTree.add(5);
+        testTree.add(2);
+        testTree.add(7);
+        testTree.printLeafNodes(testTree.getRoot());
+        Assertions.assertTrue(testTree.contains(2));
     }
+
+
 
     @Test
     void containsNotExistingElement(){
-        testTree.add("eins");
-        testTree.add("zwei");
-        testTree.add("drei");
-
-        Assertions.assertFalse(testTree.contains("empty"));
+        testTree.add(1);
+        testTree.add(2);
+        testTree.add(3);
+        testTree.balance();
+        Assertions.assertFalse(testTree.contains(5));
     }
 
     @Test
     void containsOnEmptyTree(){
-        Assertions.assertFalse(testTree.contains("empty"));
+        Assertions.assertFalse(testTree.contains(5));
     }
 
     @Test
     void find() {
-        String testString = "zwei";
+        int testint = 2;
 
-        testTree.add("eins");
-        testTree.add(testString);
-        testTree.add("drei");
+        testTree.add(1);
+        testTree.add(testint);
+        testTree.add(3);
 
-        Assertions.assertEquals(testString, testTree.find(testString));
+        Assertions.assertEquals(testint, testTree.find(testint));
     }
 
     @Test
     void size() {
-        testTree.add("eins");
-        testTree.add("zwei");
-        testTree.add("drei");
+        testTree.add(1);
+        testTree.add(2);
+        testTree.add(3);
         Assertions.assertEquals(3, testTree.size());
     }
 }
