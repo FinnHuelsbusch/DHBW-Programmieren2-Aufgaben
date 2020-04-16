@@ -12,9 +12,14 @@ public class Tree<D extends Comparable<D> > {
     }
 
     public void add(D data){
+        if (data == null) {
+            System.out.println("Keine validen Daten");
+            return;
+        }
         if (root == null) {
             root = new Node<D>(data);
         }
+
         Node<D> workingNode = root;
         while (workingNode != null) {
             if (workingNode.getData().equals(data)) {
@@ -35,7 +40,6 @@ public class Tree<D extends Comparable<D> > {
                 }
             }
         }
-
     }
 
     public void balance() {
@@ -46,7 +50,6 @@ public class Tree<D extends Comparable<D> > {
 
     private Node buildTreeUtil(Node<D>[] nodes, int start,int end)
     {
-
         if (start > end)
             return null;
 
@@ -82,8 +85,6 @@ public class Tree<D extends Comparable<D> > {
 
         return i+1;
     }
-
-
 
     private void sort(Node<D> arr[], int low, int high)
     {
@@ -191,15 +192,10 @@ public class Tree<D extends Comparable<D> > {
     }
 
 
-
-
-
-
     int size()
     {
         return size(root);
     }
-
 
     int size(Node node)
     {
