@@ -40,9 +40,7 @@ public class Sortieralgorithmen {
         for (int i = 1; i < list.length; i++) {
             for (int j = 0; j < list.length -1; j++) {
                 if (list[j] > list[j + 1]) {
-                    int temp = list[j];
-                    list[j] = list[j + 1];
-                    list[j + 1] = temp;
+                    swap(list, j);
                 }
             }
         }
@@ -56,14 +54,18 @@ public class Sortieralgorithmen {
         boolean swapped = false; 
         for (int i = 0; i < j; i++) {
             if(list[i]>list[i+1]){
-                int swap = list[i]; 
-                list[i] = list[i+1]; 
-                list[i+1] = swap; 
+                swap(list, i); 
                 swapped = true; 
             }
         }
         j--; 
-    }while(swapped == true); 
+        }while(swapped == true); 
+    }
+
+    private void swap(int[] list, int i) {
+        int swap = list[i]; 
+        list[i] = list[i+1]; 
+        list[i+1] = swap;
     }
 
     private int[] insertsort(int[] list) {
