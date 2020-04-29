@@ -5,14 +5,11 @@ public class WordsIWantToLearn {
     Element peektElement = null;
 
     public void push(String data) {
-        if (peektElement == null) {
-            peektElement = new Element(data, null);
-        } else {
-            peektElement = new Element(data, peektElement);
-        }
+        peektElement= new Element(data, peektElement);
     }
 
     public String pop() {
+
         if (peektElement == null) {
             return null;
         } else {
@@ -23,7 +20,7 @@ public class WordsIWantToLearn {
     }
 
     public String peek() {
-        return peektElement.getData();
+        return peektElement == null ? null : peektElement.getData();
     }
 
     private class Element {
