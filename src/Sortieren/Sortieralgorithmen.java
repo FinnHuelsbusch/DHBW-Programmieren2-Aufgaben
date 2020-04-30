@@ -34,7 +34,6 @@ public class Sortieralgorithmen {
 
 
     public static int[] bubblesortBergNeels(int[] list) {
-        long start = System.currentTimeMillis();
         int j = list.length-1;
         boolean swapped = false;
         do{
@@ -47,7 +46,6 @@ public class Sortieralgorithmen {
         }
         j--; 
         }while(swapped == true);
-        System.out.println(System.currentTimeMillis()-start);
         return list;
     }
 
@@ -69,40 +67,41 @@ public class Sortieralgorithmen {
     }
 
 
-    private static int partition(int[] list, int min, int max) {
-        int pivot = list[max];
-        int j = min - 1;
-        for (int i = min; i < max; i++) {
-            if (list[i] <= pivot) {
-                j++;
-                swap(list, j, i);
+    public static int[] quickSort(int[] array) {
+        quickSort(array, 0, array.length-1);
+        return array;
+    }
+
+    private static void quickSort(int[] array,int start, int end) {
+        if (start < end) {
+            int pivot = divide(array, start, end);
+            quickSort(array, start, pivot-1);
+            quickSort(array, pivot+1, end);
+        }
+
+    }
+
+    private static int divide(int[] array, int start, int end) {
+        int pivot = array[end], i = start, j = end-1;
+        while (i < j) {
+            while (array[i] < pivot&& i < end ) i++;
+            while (j > start && array[j] >= pivot) j--;
+            if (i < j) {
+                int swap = array[i];
+                array[i] = array[j];
+                array[j] = swap;
             }
         }
-        swap(list, j + 1, max);
-        return j;
-    }
-
-
-    private static int[] quicksort(int[] list, int min, int max) {
-        if (min < max) {
-            int pi = partition(list, min, max);
-            quicksort(list, min, pi - 1);
-            quicksort(list, pi + 1, max);
+        if (array[i] > pivot) {
+            int swap = array[i];
+            array[i] = array[end];
+            array[end] = swap;
         }
-        return list;
-    }
-
-    public static int[] quicksort(int[] list) {
-        long start = System.currentTimeMillis();
-        int[] sortedlist  = quicksort(list, 0, list.length - 1);
-        System.out.println(System.currentTimeMillis()-start);
-        return sortedlist;
+        return i;
     }
 
 
     public static int[] selectionsortBergNeels(int[] list) {
-       long start = System.currentTimeMillis();
-
         int marker = list.length - 1;
         while (marker > 0) {
             int maxPosition = 0;
@@ -114,8 +113,34 @@ public class Sortieralgorithmen {
             swap(list, marker, maxPosition);
             marker--;
         }
-        System.out.println(System.currentTimeMillis()-start);
         return list;
+    }
+
+    public static int[] quickSortBergNeels(int[] array) {
+        quickSortBergNeels(array, 0, array.length - 1);
+        return array;
+    }
+
+
+    private static int[] quickSortBergNeels(int[] array, int left, int right) {
+        int indexLeft = left, indexRight = right;
+
+        if (indexLeft <= indexRight) {
+            int pivot = array[(indexLeft + indexRight) / 2];
+            while (indexLeft < indexRight) {
+                while (array[indexLeft] < pivot) indexLeft++;
+                while (array[indexRight] > pivot) indexRight--;
+                if (indexLeft <= indexRight) {
+                    swap(array, indexLeft, indexRight);
+                    indexLeft++;
+                    indexRight--;
+                }
+            }
+            if(left<indexRight) quickSortBergNeels(array, left, indexRight);
+            if(right>indexLeft) quickSortBergNeels(array, indexLeft, right);
+        }
+
+        return array;
     }
 
     private static void swap(int[] list, int pos1, int pos2) {
@@ -125,7 +150,6 @@ public class Sortieralgorithmen {
     }
 
     public static int[] insertionSort(int[] list) {
-        long start = System.currentTimeMillis();
         for (int i = 1; i < list.length; i++) {
             for (int j = i; j >0; j--) {
                 if (list[j] < list[j - 1]) {
@@ -136,7 +160,6 @@ public class Sortieralgorithmen {
 
             }
         }
-        System.out.println(System.currentTimeMillis()-start);
         return list;
     }
 }

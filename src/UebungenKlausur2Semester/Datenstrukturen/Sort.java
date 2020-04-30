@@ -1,5 +1,7 @@
 package UebungenKlausur2Semester.Datenstrukturen;
 
+import javax.naming.ldap.LdapName;
+
 public class Sort {
     private static void swapElements(int[] array, int a, int b) {
         int buffer = array[a];
@@ -32,13 +34,20 @@ public class Sort {
     }
 
     public static int[] quickSort(int[] array) {
-        int pivot = quickSort(array, 0, array.length-1 );
-        quickSort(array, 0, pivot-1);
-        quickSort(array, pivot+1, array.length-1 );
+        quickSort(array, 0, array.length-1);
         return array;
     }
 
-    private static int quickSort(int[] array, int start, int end) {
+    private static void quickSort(int[] array,int start, int end) {
+        if (start < end) {
+            int pivot = divide(array, start, end);
+            quickSort(array, start, pivot-1);
+            quickSort(array, pivot+1, end);
+        }
+
+    }
+
+    private static int divide(int[] array, int start, int end) {
         int pivot = array[end], i = start, j = end-1;
         while (i < j) {
             while (array[i] < pivot&& i < end ) i++;
@@ -48,9 +57,12 @@ public class Sort {
                 array[i] = array[j];
                 array[j] = swap;
             }
-
         }
-
+        if (array[i] > pivot) {
+            int swap = array[i];
+            array[i] = array[end];
+            array[end] = swap;
+        }
         return i;
     }
 }
