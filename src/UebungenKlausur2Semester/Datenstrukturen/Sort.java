@@ -1,15 +1,15 @@
 package UebungenKlausur2Semester.Datenstrukturen;
 
 public class Sort {
-    private static void swapElements(int[] array, int a, int b){
+    private static void swapElements(int[] array, int a, int b) {
         int buffer = array[a];
         array[a] = array[b];
         array[b] = buffer;
     }
 
-    public static int[] bubbleSort(int[] array){
-        for (int i = array.length-1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
+    public static int[] bubbleSort(int[] array) {
+        for ( int i = array.length - 1; i > 0; i-- ) {
+            for ( int j = 0; j < i; j++ ) {
                 if (array[j] > array[j + 1]) {
                     swapElements(array, j, j + 1);
                 }
@@ -18,10 +18,10 @@ public class Sort {
         return array;
     }
 
-    public static int[] selectionSort(int[] array){
-        for (int i = 0; i < array.length; i++) {
+    public static int[] selectionSort(int[] array) {
+        for ( int i = 0; i < array.length; i++ ) {
             int workingIndex = i;
-            for (int j = i; j < array.length; j++) {
+            for ( int j = i; j < array.length; j++ ) {
                 if (array[workingIndex] > array[j]) {
                     workingIndex = j;
                 }
@@ -31,24 +31,26 @@ public class Sort {
         return array;
     }
 
-    public static class Exceptions {
+    public static int[] quickSort(int[] array) {
+        int pivot = quickSort(array, 0, array.length-1 );
+        quickSort(array, 0, pivot-1);
+        quickSort(array, pivot+1, array.length-1 );
+        return array;
+    }
 
-        public static void main(String[] args) {
-            new Exceptions();
+    private static int quickSort(int[] array, int start, int end) {
+        int pivot = array[end], i = start, j = end-1;
+        while (i < j) {
+            while (array[i] < pivot&& i < end ) i++;
+            while (j > start && array[j] >= pivot) j--;
+            if (i < j) {
+                int swap = array[i];
+                array[i] = array[j];
+                array[j] = swap;
+            }
+
         }
 
-        public Exceptions() {
-            System.out.println( div(5, 2));
-            String a = "Hallo";
-            System.out.println(a instanceof String);
-            System.out.println(new Integer(5).compareTo(5));
-        }
-
-        public int div(int a, int b) throws NullPointerException{
-
-            return a / b;
-        }
-
+        return i;
     }
 }
-

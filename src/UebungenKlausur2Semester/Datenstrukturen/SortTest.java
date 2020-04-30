@@ -44,6 +44,12 @@ class SortTest {
     }
 
     @Test
+    void quickSort() {
+        int[] bubbleSortedArray = Sort.quickSort(toSort.clone());
+        assertTrue(isSorted(bubbleSortedArray));
+    }
+
+    @Test
     void selectionSort() {
         int[] selectionSortedArray = Sort.selectionSort(toSort.clone());
         assertTrue(isSorted(selectionSortedArray));
